@@ -2,7 +2,7 @@
   "name": "frontend-text",
   "version": "1.0.0",
   "description": "A simple frontend development test",
-  "main": "index.js",
+  "main": "app.js",
   "author": "@dhguissepe",
   "license": "ISC",
   "scripts": {
@@ -11,7 +11,8 @@
   },
   "dependencies": {
     "@babel/runtime": "7.5.5",
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "mini-css-extract-plugin": "^0.8.0"
   },
   "devDependencies": {
     "@babel/core": "7.5.5",
