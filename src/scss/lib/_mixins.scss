@@ -1,0 +1,9 @@
+//MIXINS
+
+@mixin two-color-gradient-bg($color1, $color2, $inclination) {
+  background: -webkit-linear-gradient($inclination, $color1 25%, $color2 100%);
+  background: -moz-linear-gradient($inclination, $color1 25%, $color2 100%);
+  background: -ms-linear-gradient($inclination, $color1 25%, $color2 100%);
+  background: -o-linear-gradient($inclination, $color1 25%, $color2 100%);
+  background: linear-gradient($inclination, $color1 25%, $color2 100%);
+}

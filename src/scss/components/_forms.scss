@@ -1,0 +1,35 @@
+/*FORMS*/
+
+.main-form {
+
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+
+  &--input {
+    border: $form-elements-border;
+    border-radius: $form-elements-br;
+    box-sizing: border-box;
+    outline: none;
+    padding: $form-elements-padding;
+    padding-left: 10px;
+    width: 77.5%;
+  }
+
+  &--btn {
+    @include two-color-gradient-bg($ultra-light-gray, darken($white, 1%), 0);
+    border: $form-elements-border;
+    border-radius: $form-elements-br;
+    cursor: pointer;
+    font-weight: 700;
+    outline: none;
+    padding: $form-elements-padding;
+    transition: 0.3s;
+    width: 20%;
+
+    &:active {
+      transform: scale(.95)
+    }
+  }
+
+}

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>GitHub User Search</title>
+</head>
+<body>
+  <div class="searcher">
+
+    <form id="main-form" class="main-form">
+      <input id="main-form--input" class="main-form--input" type="text" placeholder="Search username...">
+      <button id= "main-form--btn" class="main-form--btn">Search</button>
+    </form>
+
+    <div id="user-info-wrapper" class="user-info-wrapper">
+      <div id="user-summary" class="user-summary">
+        <figure class="avatar-wrapper">
+          <img id="avatar" src="" alt="Avatar" class="avatar">
+        </figure>
+        <div class="user-details">
+          <small id="username" class="username"></small>
+          <h1 id="full-name" class="full-name"></h1>
+          <small id="user-bio" class="user-bio"></small>
+        </div>
+      </div>
+
+      <div class="user-repos">
+        <h2>Repositories</h2>
+        <ul id="repo-list" class="repo-list"></ul>
+      </div>
+    </div>
+
+    <div id="error-message" class="error-message"></div>
+
+    <div id="mini-loader" class="mini-loader">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+
+  </div>
+</body>
+</html>

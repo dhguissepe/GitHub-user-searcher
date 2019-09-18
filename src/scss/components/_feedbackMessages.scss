@@ -1,0 +1,19 @@
+/*FEEDBACK MESSAGES*/
+
+.error-message {
+  background: $danger-btn-bg-color;
+  border: 0.5px solid $danger-btn-border-color;
+  border-radius: $form-elements-br;
+  box-sizing: border-box;
+  color: $danger-text-color;
+  display: none;
+  font-size: 0.85em;
+  margin-top: 0.7em;
+  padding: 1em;
+  width: 100%;
+
+
+  &.active {
+    display: block
+  }
+}

@@ -1,0 +1,103 @@
+/*SEARCHER*/
+
+.searcher {
+  align-items: center;
+  background: $white;
+  box-shadow: 6px 6px 15px 2px rgba(0, 0, 0, 0.3);
+  border-radius: 15px;
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 360px;
+  overflow: hidden;
+  padding: 1.5em;
+  width: 100%;
+
+  //Styles of Presentational componets inside searcher
+    //Wrapper
+  .user-info-wrapper{
+    display: none;
+    width: 100%;
+
+    &.active {
+      display: block
+    }
+  }
+
+    //User summary
+  .user-summary {
+    display: flex;
+    justify-content: flex-start;
+    margin: 1em 0;
+    width: 100%;
+
+    .user-details {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      margin: 0;
+      max-height: 85px;
+
+      .full-name {
+        font-size: 24px;
+        margin: 0;
+      }
+    }
+
+  }
+
+    //User repositories' list
+  .user-repos {
+
+    h2 {
+      border-bottom: 2px solid $dark-gray;
+      font-size: 1.1em;
+      margin: 0;
+      padding: 0 0 0.83em;
+    }
+
+    .repo-list {
+      margin: 0;
+      max-height: 200px;
+      overflow: auto;
+      padding: 0;
+      &.no-repos {
+        padding: 0.8em 0 0;
+      }
+    }
+
+    .repo {
+      align-items: center;
+      border-bottom: 1px solid darken($ultra-light-gray, 10%);
+      display: flex;
+      justify-content: space-between;
+      padding: 1em 0.5em;
+
+      .repo-name {
+        margin: 0;
+        max-width: 58%;
+        overflow: auto;
+        word-wrap: break-word;
+      }
+      .stars {
+        font-size: 0.96em;
+        margin-left: 5px;
+      }
+      .forks {
+        font-size: 0.96em;
+        margin-left: 1px;
+      }
+    }
+
+  }
+
+}
+
+
+
+
+
+
+
+
+

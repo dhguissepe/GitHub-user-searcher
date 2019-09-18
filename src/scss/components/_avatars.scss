@@ -1,0 +1,13 @@
+/*AVATARS*/
+
+.avatar-wrapper {
+  display: flex;
+  margin: 0 10px 0 0;
+  max-height: 85px;
+  position: relative;
+
+  .avatar {
+    border-radius: $form-elements-br;
+    max-width: 90px;
+  }
+}
