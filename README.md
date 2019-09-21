@@ -1,4 +1,4 @@
-# dh-marfeel-test
+# GitHub-user-searcher
 This a frontend test given by Marfeel as a technical test.
 
 ### General Comments: 
