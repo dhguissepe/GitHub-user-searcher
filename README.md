@@ -1,5 +1,5 @@
 # GitHub-user-searcher
-This a frontend test given by Marfeel as a technical test.
+Vanilla JavaScript Application to look for GitHub users' summaries. This a frontend test given by Marfeel as a technical test.
 
 ### General Comments: 
 
