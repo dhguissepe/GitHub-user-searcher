@@ -14,7 +14,7 @@ async function callGitHubApi(endpoint, options= {}) {
 
   //Throwing exception if not found
   if (data.message == 'Not Found') {
-    throw `TypeError: 404 ${data.message}`
+    throw `Error: User ${data.message}`
   }
 
   return data

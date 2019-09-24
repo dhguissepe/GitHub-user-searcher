@@ -73,9 +73,7 @@ const onResponse = (data, repos) => {
   $repoList.innerHTML = ""
 
   if (repos.length) {
-    for(let i = 0; i < repos.length; i++) {
-      createNewListElement(repos[i])
-    }
+    repos.forEach((item) => createNewListElement(item))
   } else {
     $repoList.classList.add('no-repos')
     $repoList.innerHTML = 'This user has no available repositories.'
@@ -89,7 +87,7 @@ const onError = (error) => {
   $miniLoader.classList.remove('active')
 
   //Showing error
-  $errorMessage.innerHTML = `Something went wrong. ${ error }.`
+  $errorMessage.innerHTML = `Something went wrong: ${ error }.`
   $errorMessage.classList.add('active')
 }
 
