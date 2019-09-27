@@ -1,8 +1,6 @@
-//Importing assets
-import api from './api.js'
 import '../scss/styles.scss'
+import GateWay from './GateWay.js'
 
-//HTML elements that are going to interact
 const $errorMessage = document.getElementById('error-message')
 const $formBtn = document.getElementById('main-form--btn')
 const $formInput = document.getElementById('main-form--input')
@@ -16,7 +14,6 @@ const $userBio = document.getElementById('user-bio')
 
 const $repoList = document.getElementById('repo-list')
 
-//handling events
 function handleClick(e) {
   e.preventDefault()
 
@@ -30,46 +27,42 @@ function handleClick(e) {
 
 $formBtn.addEventListener('click', handleClick)
 
-//Fetching User Data function
 const fetchData = async (user) => {
+  const getCurrentUserData = new GateWay(user)
   try {
-    const data = await api.users.get(user)
-    const repos = await api.users.getRepos(user)
+    const userSummary = await getCurrentUserData.getUserSummary()
+    const userRepos = await getCurrentUserData.getUserRepos()
+    onResponse(userSummary, userRepos)
 
-    onResponse(data, repos)
-  }
-  catch(error) {
+  } catch(error) {
     $miniLoader.classList.remove('active')
     onError(error)
   }
 }
 
-//Actions after fetching user data
-const onResponse = (data, repos) => {
+const onResponse = ({ login, name, bio, avatar_url }, repos) => {
   $miniLoader.classList.remove('active')
 
-  //Showing user summary
-  $avatar.setAttribute('src', data['avatar_url'])
+  $avatar.setAttribute('src', avatar_url)
 
-  if (data.login) {
-    $username.innerHTML = `@${ data.login }`
+  if (login) {
+    $username.innerHTML = `@${ login }`
   } else {
-    $username.innerHTML = "No user name"
+    $username.innerHTML = "No username available"
   }
 
-  if (data.name) {
-    $fullName.innerHTML = data.name
+  if (name) {
+    $fullName.innerHTML = name
   } else {
     $fullName.innerHTML = "No full name available"
   }
 
-  if (data.bio) {
-    $userBio.innerHTML = data.bio
+  if (bio) {
+    $userBio.innerHTML = bio
   } else {
     $userBio.innerHTML = "No bio available"
   }
 
-  //showing user repos
   $repoList.innerHTML = ""
 
   if (repos.length) {
@@ -79,27 +72,23 @@ const onResponse = (data, repos) => {
     $repoList.innerHTML = 'This user has no available repositories.'
   }
 
-
   $userInfo.classList.add('active')
 }
 
 const onError = (error) => {
   $miniLoader.classList.remove('active')
-
-  //Showing error
   $errorMessage.innerHTML = `Something went wrong: ${ error }.`
   $errorMessage.classList.add('active')
 }
 
-//Utilities
-const createNewListElement = (repo) => {
+const createNewListElement = ({ name, stargazers_count, forks_count }) => {
   const newListElement = document.createElement('li')
 
   $repoList.appendChild(newListElement)
   newListElement.classList.add('repo')
-  newListElement.innerHTML = `<h3 class="repo-name">${ repo.name }</h3>
+  newListElement.innerHTML = `<h3 class="repo-name">${ name }</h3>
                               <div class="repo-summary">
-                                <i class="icon-star-full"></i><span class="stars">${ repo.stargazers_count }</span>
-                                <i class="icon-flow-branch"></i><span class="forks"> ${ repo.forks_count } </span>
+                                <i class="icon-star-full"></i><span class="stars">${ stargazers_count }</span>
+                                <i class="icon-flow-branch"></i><span class="forks"> ${ forks_count } </span>
                               </div>`
 }
